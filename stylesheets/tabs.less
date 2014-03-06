@@ -8,12 +8,15 @@
 
 .tab-bar {
 
+  // TAB BAR
   & {
     height: @tab-height;
     padding: 0;
     background: @tab-bar-background-color;
   }
 
+
+  // TAB ITEM
   .tab {
     padding-left: 15px !important;
     display: inline-block;
@@ -25,13 +28,32 @@
     margin-right: 2px;
     transition: color .2s;
 
-    &:before {
-      display: none;
+    &:before { display: none; }
+
+    &.modified:before {
+      display: block;
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 4px;
+      background: rgba(255,0,0,.2);
     }
 
+    .title {
+      font-size: 12px;
+    }
+  }
+
+  // CLOSE ICON
+  .tab {
     .close-icon {
+      opacity: 0;
       z-index: 3;
       line-height: @tab-height;
+      transition: opacity .2s;
       &:before {
         background: rgba(255,255,255,0.1);
         color: #191D21;
@@ -44,50 +66,49 @@
         background: rgba(255,255,255,0.2);
       }
     }
+    &:hover {
+      .close-icon { opacity: 1; }
+    }
+    &.active {
+      .close-icon { opacity: 1; }
+    }
     &.modified:not(:hover) .close-icon {
-      top: @tab-height/2 - @modified-icon-width/2 + 1px;
-      right: 14px;
-      width: @modified-icon-width;
-      height: @modified-icon-width;
+      border: 0;
+      width: auto;
+      height: auto;
+      top: 1px;
+      right: 10px;
+      line-height: 50px;
       &:before {
-        display: none;
+        content: "\f081";
+      }
+
+    }
+  }
+
+  // TABS STATES
+  .tab {
+    &.active {
+      z-index: 10;
+      line-height: @tab-height - 3px;
+      color: @text-color-highlight;
+      background-color: @tab-background-color-active;
+      border: none;
+      .title {
+        position: relative;
+        top: 1px;
       }
     }
 
-    .title {
-      font-size: 12px;
+    &:hover {
+      background-color: @tab-background-color-hover;
+      color: desaturate(lighten(@tab-background-color,70%),5%);
     }
 
-  }
-
-  .tab.active {
-    z-index: 10;
-    line-height: @tab-height - 3px;
-    color: @text-color-highlight;
-
-    background-color: @tab-background-color-active;
-    //box-shadow: inset -1px 1px 0 @tab-border-color, 4px -4px 4px rgba(0,0,0,.1);
-    border: none;
-
-    .title {
-      position: relative;
-      top: 1px;
+    &.active:hover {
+      background-color: @tab-background-color-active;
+      color: @text-color-highlight;
     }
-
-  }
-
-  .tab:hover {
-    background-color: @tab-background-color-hover;
-    color: desaturate(lighten(@tab-background-color,70%),5%);
-  }
-
-  .tab.active:hover {
-    background-color: @tab-background-color-active;
-    color: @text-color-highlight;
-  }
-
-  .tab.active:hover .close-icon {
-    color: @text-color-highlight;
   }
 
   .placeholder {
