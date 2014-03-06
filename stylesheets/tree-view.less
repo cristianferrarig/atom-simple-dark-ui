@@ -9,8 +9,48 @@
   }
 }
 
+.tree-view-resizer {
+  min-width: 15px;
+  .tree-view-resize-handle {
+    position: absolute;
+    top: 0;
+    right: -5px;
+    bottom: 0;
+    width: 10px;
+    cursor: col-resize;
+    z-index: 3;
+    &:before,
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+    }
+    &:before {
+      background-color: red;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 20px;
+      background: -webkit-linear-gradient( left , rgba(0,0,0,0), rgba(0,0,0,0.2));
+    }
+    &:after {
+      height: 20px;
+      width: 4px;
+      top: 50%;
+      right: 10px;
+      border: 1px solid rgba(255,255,255,0.16);
+      border-width: 0 1px;
+      margin-top: -10px;
+      background-color: #0A0B0D;
+      box-shadow: 0 0 0 6px #0A0B0D;
+
+    }
+  }
+}
+
+
 .focusable-panel {
-  //opacity: .5;
+  opacity: .5;
   background: @tree-view-background-color;
   box-shadow: inset -3px 0 0 rgba(0,0,0, .05);
   transition: opacity .2s;
