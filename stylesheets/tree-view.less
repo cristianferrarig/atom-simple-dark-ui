@@ -1,25 +1,27 @@
-@import "ui-variables";
-
 .tree-view {
   font-size: @font-size;
   background: @tree-view-background-color;
+  padding: @tree-view-padding;
 
   .selected:before {
-  	background: #444;
+  	background: darken(@base-tone,5%);
     box-shadow: inset -3px 0 0 rgba(0,0,0, .05);
   }
 }
 
 .focusable-panel {
-  opacity: 1;
-  background: #303030;
+  //opacity: .5;
+  background: @tree-view-background-color;
   box-shadow: inset -3px 0 0 rgba(0,0,0, .05);
+  transition: opacity .2s;
 
+  &:hover,
   &:focus {
-    background: #282828;
+    //background: darken(@base-tone,10%);
+    opacity: 1;
 
     .selected:before {
-      background: @background-color-selected;
+      //background: darken(@base-tone,5%);
     }
 
     .selected > .name,

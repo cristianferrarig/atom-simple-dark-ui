@@ -1,5 +1,10 @@
 // Colors
 
+@base-color:  #000;
+@base-tone:   #20252A;
+@brand-color: #007FFF;
+
+
 @text-color: #aaa;
 @text-color-subtle: #555;
 @text-color-highlight: #fff;
@@ -8,7 +13,7 @@
 @text-color-info: #5293d8;
 @text-color-success: #26c26a;
 @text-color-warning: #ff982d;
-@text-color-error: #c00;
+@text-color-error: #F73737;
 
 @text-color-ignored: @text-color-subtle;
 @text-color-added: @text-color-success;
@@ -33,9 +38,12 @@
 
 @input-background-color: #212224;
 @input-border-color: @base-border-color;
+@input-placeholder-color: lighten(@input-background-color, 18%);
 
-@tool-panel-background-color: #1d1f21;
+@tool-panel-background-color: desaturate(lighten(@base-tone,10%),2%);
 @tool-panel-border-color: @base-border-color;
+@tool-panel-text-color: desaturate(lighten(@tool-panel-background-color,35%),2%);
+
 
 @inset-panel-background-color: #161719;
 @inset-panel-border-color: @base-border-color;
@@ -43,22 +51,31 @@
 @panel-heading-background-color: #43484d;
 @panel-heading-border-color: fadein(@base-border-color, 10%);
 
+@editor-background-color: @base-tone;
+
 @overlay-background-color: #202123;
 @overlay-border-color: @background-color-highlight;
 
-@button-background-color: #43484d;
-@button-background-color-hover: lighten(@button-background-color, 5%);
-@button-background-color-selected: #5c6064;
-@button-border-color: @base-border-color;
 
-@tab-bar-background-color: #222;
+
+@button-background-color: lighten(@tool-panel-background-color,8%);
+@button-background-color-hover: lighten(@button-background-color, 3%);
+@button-background-color-selected: darken(@button-background-color, 5%);
+@button-border-color: @base-border-color;
+@button-text-color: lighten(@button-background-color,45%);
+
+@tab-bar-background-color: darken(@base-tone,10%);
 @tab-bar-border-color: darken(@tab-background-color-active, 10%);
-@tab-background-color: #333;
-@tab-background-color-active: #222;
+
+@tab-background-color: darken(@base-tone,5%);
+@tab-background-color-hover: darken(@base-tone,3%);
+@tab-background-color-active: @base-tone;
 @tab-border-color: #484848;
 
-@tree-view-background-color: @tool-panel-background-color;
+@tree-view-background-color: darken(@base-tone,10%);
 @tree-view-border-color: @tool-panel-border-color;
+@tree-view-padding: 15px 20px;
+
 
 @ui-site-color-1: @background-color-success; // green
 @ui-site-color-2: @background-color-info; // blue
@@ -79,7 +96,7 @@
 @component-line-height: 25px;
 @component-border-radius: 2px;
 
-@tab-height: 30px;
+@tab-height: 50px;
 
 
 // Other

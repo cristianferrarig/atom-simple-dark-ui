@@ -1,34 +1,46 @@
-@import "ui-variables";
-@import "ui-mixins";
-
 .btn-background (@color, @hover-color, @selected-color, @text-color) {
   color: @text-color;
-  background-color: transparent;
-  background-image: -webkit-linear-gradient(@color, darken(@color, 5%));
+  background-image: none;
+  background-color: @color;
 
   &:hover {
     color: @text-color-highlight;
-    background-image: -webkit-linear-gradient(@hover-color, darken(@hover-color, 5%));
+    background: @hover-color;
   }
   &.selected,
   &.selected:hover {
     color: @text-color-highlight;
-    background-image: -webkit-linear-gradient(darken(@selected-color, 5%), @selected-color);
+    background: @selected-color;
     &:hover {
-      background-image: -webkit-linear-gradient(@selected-color, darken(@selected-color, 5%));
+      background: @selected-color;
     }
   }
 }
 
 .btn-variant (@color) {
-  @bg: darken(@color, 10%);
-  @hover: @color;
-  @selected: @color;
-  .btn-background(@bg, @hover, @selected, @text-color-highlight);
+  @bg: @color;
+  @hover: lighten(@color,3%);
+  @selected: darken(@color,16%);
+  .btn-background(@bg, @hover, @selected, @button-text-color);
 }
 
+/*
 .btn {
-  .btn-background(@button-background-color, @button-background-color-hover, @button-background-color-selected, @text-color);
+  color: #aaaaaa;
+
+  border: none;
+  text-shadow: none;
+  padding: 0 10px;
+  font-size: 13px;
+  z-index: 0;
+  background-color: #43484d;
+}
+*/
+.btn {
+  height: 35px;
+  line-height: 35px;
+  .btn-variant(@button-background-color);
+  //.btn-background(@button-background-color, @button-background-color-hover, @button-background-color-selected, @text-color);
 }
 
 .btn.btn-primary {
