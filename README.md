@@ -2,4 +2,4 @@
 
 A fork of the Default dark UI theme for Atom. More simple.
 
-![](https://f.cloud.github.com/assets/671378/2265086/c6897dba-9e7b-11e3-945d-551cac610717.png)
+![](https://dl.dropboxusercontent.com/u/24929618/assets/atom-simple-dark-ui.png)
